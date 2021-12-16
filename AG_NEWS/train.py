@@ -126,7 +126,7 @@ if __name__ == '__main__':
     emsize = 64
     model = TextClassificationModel(vocab_size, emsize, num_class).to(device)
     # Hyper parameters
-    EPOCHS = 2  # epoch
+    EPOCHS = 25  # epoch
     LR = 0.1  # learning rate
     BATCH_SIZE = 64  # batch size for training
 
@@ -193,9 +193,9 @@ if __name__ == '__main__':
         plt.plot(x, test_acc_temp[i], '+-', color=color[i], label=ag_news_label[i])  # o-:圆形
     plt.xlabel("Epoch")  # 横坐标名字
     plt.ylabel("ACC")  # 纵坐标名字
+    plt.legend()
     plt.savefig('ACC_class.jpg')
     # plt.savefig('test_loss.jpg')
-    plt.legend()
     plt.show()
 
     torch.save(model.state_dict(), 'ChineseTextClassification.pth')
